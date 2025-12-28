@@ -10,7 +10,7 @@
 src/
 ├── assets/              # Imágenes, iconos
 ├── components/
-│   ├── layout/          # Navbar, Footer, MainLayout
+│   ├── layout/          # Header, Navbar, Footer, MainLayout
 │   └── ui/              # Button, Badge, Loader, EmptyState
 ├── data/                # books.mock.js
 ├── features/
@@ -27,13 +27,14 @@ src/
 
 ---
 
-## 🧩 Componentes (18 total)
+## 🧩 Componentes (19 total)
 
 ### Layout
 
 | Componente   | Ubicación            |
 | ------------ | -------------------- |
 | `MainLayout` | `components/layout/` |
+| `Header`     | `components/layout/` |
 | `Navbar`     | `components/layout/` |
 | `Footer`     | `components/layout/` |
 
