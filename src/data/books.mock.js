@@ -14,7 +14,6 @@ export const books = [
     price: 18.5,
     image: "https://covers.openlibrary.org/b/isbn/9788467028423-L.jpg",
     stock: 12,
-    formats: ["fisico", "digital"],
     description: "La obra cumbre de la literatura española.",
   },
   {
@@ -25,7 +24,6 @@ export const books = [
     price: 15.99,
     image: "https://covers.openlibrary.org/b/isbn/9780307474728-L.jpg",
     stock: 25,
-    formats: ["fisico"],
     description:
       "La saga de la familia Buendía en el pueblo ficticio de Macondo.",
   },
@@ -37,7 +35,6 @@ export const books = [
     price: 12.99,
     image: "https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg",
     stock: 8,
-    formats: ["digital"],
     description: "Una novela distópica social y de ciencia ficción.",
   },
   {
@@ -48,7 +45,6 @@ export const books = [
     price: 10.5,
     image: "https://covers.openlibrary.org/b/isbn/9780156012195-L.jpg",
     stock: 50,
-    formats: ["fisico", "digital"],
     description:
       "Un cuento poético que viene acompañado de ilustraciones hechas con acuarelas.",
   },
@@ -60,7 +56,6 @@ export const books = [
     price: 14.2,
     image: "https://covers.openlibrary.org/b/isbn/9780141439518-L.jpg",
     stock: 15,
-    formats: ["fisico"],
     description: "Una novela romántica de la escritora británica Jane Austen.",
   },
   {
@@ -71,7 +66,6 @@ export const books = [
     price: 11.0,
     image: "https://covers.openlibrary.org/b/isbn/9781400034710-L.jpg",
     stock: 0,
-    formats: ["digital"],
     description: "Relato de un asesinato inevitable.",
   },
   {
@@ -82,7 +76,6 @@ export const books = [
     price: 16.75,
     image: "https://covers.openlibrary.org/b/isbn/9788437604572-L.jpg",
     stock: 5,
-    formats: ["fisico", "digital"],
     description: "Una contranovela que rompe con el orden lineal de lectura.",
   },
   {
@@ -93,7 +86,6 @@ export const books = [
     price: 13.5,
     image: "https://covers.openlibrary.org/b/isbn/9781451673319-L.jpg",
     stock: 20,
-    formats: ["fisico"],
     description: "Un futuro donde los libros están prohibidos.",
   },
   {
@@ -104,7 +96,6 @@ export const books = [
     price: 17.9,
     image: "https://covers.openlibrary.org/b/isbn/9780143126393-L.jpg",
     stock: 30,
-    formats: ["digital"],
     description:
       "Un misterio literario ambientado en la Barcelona de la primera mitad del siglo XX.",
   },
@@ -116,7 +107,6 @@ export const books = [
     price: 9.99,
     image: "https://covers.openlibrary.org/b/isbn/9780486411095-L.jpg",
     stock: 18,
-    formats: ["fisico", "digital"],
     description: "La famosa novela de vampiros.",
   },
   {
@@ -127,7 +117,6 @@ export const books = [
     price: 14.99,
     image: "https://covers.openlibrary.org/b/isbn/9780143058144-L.jpg",
     stock: 10,
-    formats: ["fisico", "digital"],
     description:
       "La historia de un estudiante que comete un crimen y su tormento psicológico.",
   },
@@ -139,7 +128,6 @@ export const books = [
     price: 11.5,
     image: "https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg",
     stock: 22,
-    formats: ["fisico"],
     description: "Una crítica a la era del jazz y el sueño americano.",
   },
   {
@@ -150,7 +138,6 @@ export const books = [
     price: 13.25,
     image: "https://covers.openlibrary.org/b/isbn/9780060935467-L.jpg",
     stock: 16,
-    formats: ["fisico", "digital"],
     description:
       "Una historia sobre la injusticia racial en el sur de Estados Unidos.",
   },
@@ -162,7 +149,6 @@ export const books = [
     price: 29.99,
     image: "https://covers.openlibrary.org/b/isbn/9780618640157-L.jpg",
     stock: 8,
-    formats: ["fisico"],
     description: "La épica aventura en la Tierra Media.",
   },
   {
@@ -173,7 +159,6 @@ export const books = [
     price: 16.0,
     image: "https://covers.openlibrary.org/b/isbn/9780143035008-L.jpg",
     stock: 14,
-    formats: ["fisico", "digital"],
     description:
       "Una de las grandes novelas de la literatura rusa sobre amor y sociedad.",
   },
@@ -185,7 +170,6 @@ export const books = [
     price: 12.99,
     image: "https://covers.openlibrary.org/b/isbn/9780451419439-L.jpg",
     stock: 7,
-    formats: ["fisico", "digital"],
     description: "Una historia épica de redención en la Francia del siglo XIX.",
   },
   {
@@ -196,7 +180,6 @@ export const books = [
     price: 14.95,
     image: "https://covers.openlibrary.org/b/isbn/9780547928227-L.jpg",
     stock: 35,
-    formats: ["fisico", "digital"],
     description:
       "La aventura de Bilbo Bolsón antes de El Señor de los Anillos.",
   },
@@ -208,7 +191,6 @@ export const books = [
     price: 15.99,
     image: "https://covers.openlibrary.org/b/isbn/9780060850524-L.jpg",
     stock: 11,
-    formats: ["digital"],
     description: "Una visión distópica de una sociedad controlada.",
   },
   {
@@ -219,7 +201,6 @@ export const books = [
     price: 16.99,
     image: "https://covers.openlibrary.org/b/isbn/9780062315007-L.jpg",
     stock: 40,
-    formats: ["fisico", "digital"],
     description: "Un viaje espiritual en busca de un tesoro.",
   },
   {
@@ -230,7 +211,6 @@ export const books = [
     price: 17.0,
     image: "https://covers.openlibrary.org/b/isbn/9781501117015-L.jpg",
     stock: 19,
-    formats: ["fisico"],
     description: "Una saga familiar que abarca cuatro generaciones en Chile.",
   },
   {
@@ -241,7 +221,6 @@ export const books = [
     price: 12.5,
     image: "https://covers.openlibrary.org/b/isbn/9780141439570-L.jpg",
     stock: 15,
-    formats: ["fisico", "digital"],
     description:
       "La historia de un hombre que vende su alma por la eterna juventud.",
   },
@@ -253,7 +232,6 @@ export const books = [
     price: 11.99,
     image: "https://covers.openlibrary.org/b/isbn/9780141439471-L.jpg",
     stock: 20,
-    formats: ["fisico"],
     description:
       "El clásico de ciencia ficción sobre la creación de vida artificial.",
   },
@@ -265,7 +243,6 @@ export const books = [
     price: 13.5,
     image: "https://covers.openlibrary.org/b/isbn/9780141441146-L.jpg",
     stock: 12,
-    formats: ["fisico", "digital"],
     description: "La historia de una huérfana que se convierte en institutriz.",
   },
   {
@@ -276,7 +253,6 @@ export const books = [
     price: 12.75,
     image: "https://covers.openlibrary.org/b/isbn/9780141439556-L.jpg",
     stock: 8,
-    formats: ["digital"],
     description: "Una historia de amor y venganza en los páramos de Yorkshire.",
   },
   {
@@ -287,7 +263,6 @@ export const books = [
     price: 22.0,
     image: "https://covers.openlibrary.org/b/isbn/9780143039990-L.jpg",
     stock: 6,
-    formats: ["fisico"],
     description:
       "La épica novela sobre las guerras napoleónicas y la sociedad rusa.",
   },
@@ -299,7 +274,6 @@ export const books = [
     price: 8.99,
     image: "https://covers.openlibrary.org/b/isbn/9780553213690-L.jpg",
     stock: 25,
-    formats: ["fisico", "digital"],
     description:
       "La historia de un hombre que despierta convertido en insecto.",
   },
@@ -311,7 +285,6 @@ export const books = [
     price: 14.0,
     image: "https://covers.openlibrary.org/b/isbn/9780679720201-L.jpg",
     stock: 18,
-    formats: ["fisico", "digital"],
     description:
       "Una novela existencialista sobre la indiferencia del universo.",
   },
@@ -323,7 +296,6 @@ export const books = [
     price: 16.5,
     image: "https://covers.openlibrary.org/b/isbn/9780142437247-L.jpg",
     stock: 10,
-    formats: ["fisico"],
     description:
       "La obsesiva persecución del capitán Ahab a la ballena blanca.",
   },
@@ -335,7 +307,6 @@ export const books = [
     price: 13.25,
     image: "https://covers.openlibrary.org/b/isbn/9780140439083-L.jpg",
     stock: 22,
-    formats: ["fisico", "digital"],
     description: "Las mejores historias del famoso detective de Baker Street.",
   },
   {
@@ -346,7 +317,6 @@ export const books = [
     price: 18.99,
     image: "https://covers.openlibrary.org/b/isbn/9780140449266-L.jpg",
     stock: 14,
-    formats: ["fisico", "digital"],
     description: "Una historia épica de venganza y redención.",
   },
 ];

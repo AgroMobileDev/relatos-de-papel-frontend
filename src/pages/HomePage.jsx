@@ -13,6 +13,7 @@ const HomePage = () => {
       <h1 className="text-3xl font-bold text-text-main mb-6">
         Catálogo de Libros
       </h1>
+
       {/* barra de busqueda*/}
       <input
         type="text"
