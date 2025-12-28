@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { books } from "../data/books.mock";
 import BookCard from "../features/books/BookCard";
+import CartDrawer from "../features/cart/CartDrawer";
 
 const HomePage = () => {
   const [search, setSearch] = useState("");
@@ -10,6 +11,7 @@ const HomePage = () => {
   );
   return (
     <div className="max-w-6xl mx-auto px-6 py-8">
+      <CartDrawer />
       <h1 className="text-3xl font-bold text-text-main mb-6">
         Catálogo de Libros
       </h1>

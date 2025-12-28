@@ -31,6 +31,23 @@ export const useCartStore = create(
         const { cart } = get(); //lee carrito actual
         set({ cart: cart.filter((item) => item.id !== bookId) }); //actualiza carrito quitando el libro
       },
+      //decreaseQuantity: resta 1 a la cantidad o elimina si llega a 0
+      decreaseQuantity: (bookId) => {
+        const { cart } = get(); //lee carrito actual
+        const item = cart.find((i) => i.id === bookId); //encuentra el libro
+
+        if (item && item.quantity > 1) {
+          // Si tiene más de 1, restar
+          set({
+            cart: cart.map((i) =>
+              i.id === bookId ? { ...i, quantity: i.quantity - 1 } : i
+            ),
+          }); //resta quantity
+        } else {
+          // Si es 1, eliminar del carrito
+          set({ cart: cart.filter((i) => i.id !== bookId) }); //elimina libro
+        }
+      },
       //clearCart: vacia el carrito
       clearCart: () => {
         set({ cart: [] });
