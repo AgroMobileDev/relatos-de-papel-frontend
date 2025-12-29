@@ -6,7 +6,6 @@ const Navbar = () => {
       <Link to="/home" className="text-text-body hover:text-primary">
         Inicio
       </Link>
-      {/*carrito*/}
     </nav>
   );
 };

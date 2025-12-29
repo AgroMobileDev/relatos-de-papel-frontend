@@ -3,7 +3,9 @@ import MainLayout from "../components/layout/MainLayout";
 import LandingPage from "../pages/LandingPage";
 import HomePage from "../pages/HomePage";
 import BookDetailPage from "../pages/BookDetailPage";
+import CartPage from "../pages/CartPage";
 import CheckoutPage from "../pages/CheckoutPage";
+import OrderConfirmationPage from "../pages/OrderConfirmationPage";
 import NotFoundPage from "../pages/NotFoundPage";
 
 export const AppRouter = () => {
@@ -15,7 +17,12 @@ export const AppRouter = () => {
         <Route element={<MainLayout />}>
           <Route path="/home" element={<HomePage />} />
           <Route path="/book/:id" element={<BookDetailPage />} />
+          <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
+          <Route
+            path="/order-confirmation"
+            element={<OrderConfirmationPage />}
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

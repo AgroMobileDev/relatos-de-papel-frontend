@@ -15,6 +15,8 @@ export const books = [
     image: "https://covers.openlibrary.org/b/isbn/9788467028423-L.jpg",
     stock: 12,
     description: "La obra cumbre de la literatura española.",
+    category: "Clásico",
+    isBestSeller: true,
   },
   {
     id: 2,
@@ -26,6 +28,8 @@ export const books = [
     stock: 25,
     description:
       "La saga de la familia Buendía en el pueblo ficticio de Macondo.",
+    category: "Realismo Mágico",
+    isBestSeller: true,
   },
   {
     id: 3,
@@ -36,6 +40,8 @@ export const books = [
     image: "https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg",
     stock: 8,
     description: "Una novela distópica social y de ciencia ficción.",
+    category: "Ciencia Ficción",
+    isBestSeller: true,
   },
   {
     id: 4,
@@ -47,6 +53,8 @@ export const books = [
     stock: 50,
     description:
       "Un cuento poético que viene acompañado de ilustraciones hechas con acuarelas.",
+    category: "Fábula",
+    isBestSeller: true,
   },
   {
     id: 5,
@@ -57,6 +65,8 @@ export const books = [
     image: "https://covers.openlibrary.org/b/isbn/9780141439518-L.jpg",
     stock: 15,
     description: "Una novela romántica de la escritora británica Jane Austen.",
+    category: "Romance",
+    isBestSeller: false,
   },
   {
     id: 6,
@@ -67,6 +77,8 @@ export const books = [
     image: "https://covers.openlibrary.org/b/isbn/9781400034710-L.jpg",
     stock: 0,
     description: "Relato de un asesinato inevitable.",
+    category: "Realismo Mágico",
+    isBestSeller: false,
   },
   {
     id: 7,
@@ -77,6 +89,8 @@ export const books = [
     image: "https://covers.openlibrary.org/b/isbn/9788437604572-L.jpg",
     stock: 5,
     description: "Una contranovela que rompe con el orden lineal de lectura.",
+    category: "Experimental",
+    isBestSeller: false,
   },
   {
     id: 8,
@@ -87,6 +101,8 @@ export const books = [
     image: "https://covers.openlibrary.org/b/isbn/9781451673319-L.jpg",
     stock: 20,
     description: "Un futuro donde los libros están prohibidos.",
+    category: "Ciencia Ficción",
+    isBestSeller: true,
   },
   {
     id: 9,
@@ -98,6 +114,8 @@ export const books = [
     stock: 30,
     description:
       "Un misterio literario ambientado en la Barcelona de la primera mitad del siglo XX.",
+    category: "Misterio",
+    isBestSeller: true,
   },
   {
     id: 10,
@@ -108,6 +126,8 @@ export const books = [
     image: "https://covers.openlibrary.org/b/isbn/9780486411095-L.jpg",
     stock: 18,
     description: "La famosa novela de vampiros.",
+    category: "Terror",
+    isBestSeller: false,
   },
   {
     id: 11,
@@ -119,6 +139,8 @@ export const books = [
     stock: 10,
     description:
       "La historia de un estudiante que comete un crimen y su tormento psicológico.",
+    category: "Clásico",
+    isBestSeller: false,
   },
   {
     id: 12,
@@ -129,6 +151,8 @@ export const books = [
     image: "https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg",
     stock: 22,
     description: "Una crítica a la era del jazz y el sueño americano.",
+    category: "Clásico",
+    isBestSeller: true,
   },
   {
     id: 13,
@@ -140,6 +164,8 @@ export const books = [
     stock: 16,
     description:
       "Una historia sobre la injusticia racial en el sur de Estados Unidos.",
+    category: "Drama",
+    isBestSeller: true,
   },
   {
     id: 14,
@@ -150,6 +176,8 @@ export const books = [
     image: "https://covers.openlibrary.org/b/isbn/9780618640157-L.jpg",
     stock: 8,
     description: "La épica aventura en la Tierra Media.",
+    category: "Fantasía",
+    isBestSeller: true,
   },
   {
     id: 15,
@@ -161,6 +189,8 @@ export const books = [
     stock: 14,
     description:
       "Una de las grandes novelas de la literatura rusa sobre amor y sociedad.",
+    category: "Clásico",
+    isBestSeller: false,
   },
   {
     id: 16,
@@ -171,6 +201,8 @@ export const books = [
     image: "https://covers.openlibrary.org/b/isbn/9780451419439-L.jpg",
     stock: 7,
     description: "Una historia épica de redención en la Francia del siglo XIX.",
+    category: "Clásico",
+    isBestSeller: false,
   },
   {
     id: 17,
@@ -182,6 +214,8 @@ export const books = [
     stock: 35,
     description:
       "La aventura de Bilbo Bolsón antes de El Señor de los Anillos.",
+    category: "Fantasía",
+    isBestSeller: true,
   },
   {
     id: 18,
@@ -192,6 +226,8 @@ export const books = [
     image: "https://covers.openlibrary.org/b/isbn/9780060850524-L.jpg",
     stock: 11,
     description: "Una visión distópica de una sociedad controlada.",
+    category: "Ciencia Ficción",
+    isBestSeller: false,
   },
   {
     id: 19,
@@ -202,6 +238,8 @@ export const books = [
     image: "https://covers.openlibrary.org/b/isbn/9780062315007-L.jpg",
     stock: 40,
     description: "Un viaje espiritual en busca de un tesoro.",
+    category: "Ficción",
+    isBestSeller: true,
   },
   {
     id: 20,
@@ -212,6 +250,8 @@ export const books = [
     image: "https://covers.openlibrary.org/b/isbn/9781501117015-L.jpg",
     stock: 19,
     description: "Una saga familiar que abarca cuatro generaciones en Chile.",
+    category: "Realismo Mágico",
+    isBestSeller: false,
   },
   {
     id: 21,
@@ -223,6 +263,8 @@ export const books = [
     stock: 15,
     description:
       "La historia de un hombre que vende su alma por la eterna juventud.",
+    category: "Clásico",
+    isBestSeller: false,
   },
   {
     id: 22,
@@ -234,6 +276,8 @@ export const books = [
     stock: 20,
     description:
       "El clásico de ciencia ficción sobre la creación de vida artificial.",
+    category: "Terror",
+    isBestSeller: false,
   },
   {
     id: 23,
@@ -244,6 +288,8 @@ export const books = [
     image: "https://covers.openlibrary.org/b/isbn/9780141441146-L.jpg",
     stock: 12,
     description: "La historia de una huérfana que se convierte en institutriz.",
+    category: "Romance",
+    isBestSeller: false,
   },
   {
     id: 24,
@@ -254,6 +300,8 @@ export const books = [
     image: "https://covers.openlibrary.org/b/isbn/9780141439556-L.jpg",
     stock: 8,
     description: "Una historia de amor y venganza en los páramos de Yorkshire.",
+    category: "Romance",
+    isBestSeller: false,
   },
   {
     id: 25,
@@ -265,6 +313,8 @@ export const books = [
     stock: 6,
     description:
       "La épica novela sobre las guerras napoleónicas y la sociedad rusa.",
+    category: "Histórico",
+    isBestSeller: false,
   },
   {
     id: 26,
@@ -276,6 +326,8 @@ export const books = [
     stock: 25,
     description:
       "La historia de un hombre que despierta convertido en insecto.",
+    category: "Ficción",
+    isBestSeller: false,
   },
   {
     id: 27,
@@ -287,6 +339,8 @@ export const books = [
     stock: 18,
     description:
       "Una novela existencialista sobre la indiferencia del universo.",
+    category: "Ficción",
+    isBestSeller: false,
   },
   {
     id: 28,
@@ -298,6 +352,8 @@ export const books = [
     stock: 10,
     description:
       "La obsesiva persecución del capitán Ahab a la ballena blanca.",
+    category: "Aventura",
+    isBestSeller: false,
   },
   {
     id: 29,
@@ -308,6 +364,8 @@ export const books = [
     image: "https://covers.openlibrary.org/b/isbn/9780140439083-L.jpg",
     stock: 22,
     description: "Las mejores historias del famoso detective de Baker Street.",
+    category: "Misterio",
+    isBestSeller: true,
   },
   {
     id: 30,
@@ -318,5 +376,7 @@ export const books = [
     image: "https://covers.openlibrary.org/b/isbn/9780140449266-L.jpg",
     stock: 14,
     description: "Una historia épica de venganza y redención.",
+    category: "Aventura",
+    isBestSeller: true,
   },
 ];
