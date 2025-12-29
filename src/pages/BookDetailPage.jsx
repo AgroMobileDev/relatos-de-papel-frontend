@@ -1,15 +1,11 @@
-/**
- * BookDetailPage
- * ------------------------------------------------------------------
- * Muestra los detalles completos de un libro específico.
- * Permite añadir al carrito con feedback visual (toast).
- * Diseño adaptado de ronny_andrade con colores del design system.
- */
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { books } from "../data/books.mock";
 import { useCartStore } from "../store/useCartStore";
 
+/**
+ * Muestra detalle del libro y permite añadir al carrito.
+ */
 const BookDetailPage = () => {
   const { id } = useParams();
   const addToCart = useCartStore((state) => state.addToCart);

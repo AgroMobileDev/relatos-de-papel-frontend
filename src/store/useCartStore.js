@@ -1,6 +1,9 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
+/**
+ * Store global del carrito con persistencia en localStorage.
+ */
 export const useCartStore = create(
   persist(
     (set, get) => ({

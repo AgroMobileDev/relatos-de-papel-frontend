@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 
+/**
+ * Pantalla de bienvenida con countdown de 5 segundos.
+ */
 const LandingPage = () => {
   const navigate = useNavigate(); //hook para redirigir
   const [countdown, setCountdown] = useState(5); //hook para el contador

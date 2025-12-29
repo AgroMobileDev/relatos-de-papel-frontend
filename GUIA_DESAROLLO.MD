@@ -1,6 +1,6 @@
 # 📘 Guía de Desarrollo - Relatos de Papel
 
-> Documento técnico oficial. Todo código debe seguir estos lineamientos.
+> Documento técnico oficial del proyecto. Referencia para todo el equipo.
 
 ---
 
@@ -8,135 +8,203 @@
 
 ```
 src/
-├── assets/              # Imágenes, iconos
+├── assets/                    # Imágenes (logo.png)
 ├── components/
-│   ├── layout/          # Header, Navbar, Footer, MainLayout
-│   └── ui/              # Button, Badge, Loader, EmptyState
-├── data/                # books.mock.js
+│   └── layout/                # Componentes de layout
+│       ├── Header.jsx         # Header con buscador y carrito
+│       ├── Footer.jsx         # Pie de página
+│       └── MainLayout.jsx     # Layout principal con Outlet
+├── data/
+│   └── books.mock.js          # 30 libros con category, isBestSeller
 ├── features/
-│   ├── books/           # BookCard, BookList, SearchBar
-│   ├── cart/            # CartDrawer, CartItem
-│   └── checkout/        # OrderSummary
-├── hooks/               # Custom hooks adicionales
-├── pages/               # LandingPage, HomePage, BookDetailPage, CheckoutPage, NotFoundPage
-├── routes/              # AppRouter.jsx
-├── store/               # Zustand stores (useCartStore, useSearchStore)
-├── services/            # API calls (futuro)
-└── utils/               # Helpers (formatCurrency, etc.)
+│   ├── books/
+│   │   └── BookCard.jsx       # Tarjeta de libro para el catálogo
+│   ├── cart/
+│   │   ├── CartItem.jsx       # Item del carrito con controles +/-
+│   │   └── OrderSummary.jsx   # Resumen en página de carrito
+│   └── checkout/
+│       ├── PaymentMethod.jsx  # Selector Tarjeta/PayPal
+│       └── CheckoutSummary.jsx # Resumen final + confirmar
+├── hooks/                     # Custom hooks (pendiente)
+├── pages/
+│   ├── LandingPage.jsx        # Splash con countdown 5s
+│   ├── HomePage.jsx           # Catálogo con búsqueda
+│   ├── BookDetailPage.jsx     # Detalle del libro
+│   ├── CartPage.jsx           # Vista del carrito
+│   ├── CheckoutPage.jsx       # Método de pago
+│   ├── OrderConfirmationPage.jsx # Confirmación de compra
+│   └── NotFoundPage.jsx       # Página 404
+├── routes/
+│   └── AppRouter.jsx          # Configuración de rutas
+├── store/
+│   └── useCartStore.js        # Estado global del carrito (Zustand)
+├── services/                  # API calls (futuro)
+├── utils/                     # Helpers (futuro)
+├── index.css                  # Variables CSS + Tailwind
+└── main.jsx                   # Entry point
 ```
 
 ---
 
-## 🧩 Componentes (19 total)
+## 🗺️ Rutas de la Aplicación
 
-### Layout
-
-| Componente   | Ubicación            |
-| ------------ | -------------------- |
-| `MainLayout` | `components/layout/` |
-| `Header`     | `components/layout/` |
-| `Navbar`     | `components/layout/` |
-| `Footer`     | `components/layout/` |
-
-### UI Reutilizables
-
-| Componente   | Ubicación        |
-| ------------ | ---------------- |
-| `Button`     | `components/ui/` |
-| `Badge`      | `components/ui/` |
-| `Loader`     | `components/ui/` |
-| `EmptyState` | `components/ui/` |
-
-### Features
-
-| Componente     | Ubicación            |
-| -------------- | -------------------- |
-| `SearchBar`    | `features/books/`    |
-| `BookList`     | `features/books/`    |
-| `BookCard`     | `features/books/`    |
-| `CartDrawer`   | `features/cart/`     |
-| `CartItem`     | `features/cart/`     |
-| `OrderSummary` | `features/checkout/` |
-
-### Pages
-
-| Componente       | Ruta        |
-| ---------------- | ----------- |
-| `LandingPage`    | `/`         |
-| `HomePage`       | `/home`     |
-| `BookDetailPage` | `/book/:id` |
-| `CheckoutPage`   | `/checkout` |
-| `NotFoundPage`   | `*`         |
+| Ruta                  | Página                | Descripción                                 |
+| --------------------- | --------------------- | ------------------------------------------- |
+| `/`                   | LandingPage           | Splash screen, redirige a /home en 5s       |
+| `/home`               | HomePage              | Catálogo de libros con buscador             |
+| `/book/:id`           | BookDetailPage        | Detalle + añadir al carrito                 |
+| `/cart`               | CartPage              | Lista de items + resumen + proceder al pago |
+| `/checkout`           | CheckoutPage          | Método de pago + confirmar                  |
+| `/order-confirmation` | OrderConfirmationPage | Mensaje de gracias                          |
+| `*`                   | NotFoundPage          | Página 404                                  |
 
 ---
 
-## 🎣 Stores (Zustand)
+## 🧩 Componentes (15 total)
+
+### Layout (3)
+
+| Componente   | Archivo                            | Descripción                         |
+| ------------ | ---------------------------------- | ----------------------------------- |
+| `Header`     | `components/layout/Header.jsx`     | Logo + buscador + carrito con badge |
+| `Footer`     | `components/layout/Footer.jsx`     | Pie de página                       |
+| `MainLayout` | `components/layout/MainLayout.jsx` | Header + Outlet + Footer            |
+
+### Features (5)
+
+| Componente        | Archivo                                 | Descripción                                 |
+| ----------------- | --------------------------------------- | ------------------------------------------- |
+| `BookCard`        | `features/books/BookCard.jsx`           | Tarjeta con imagen, título, precio, botón   |
+| `CartItem`        | `features/cart/CartItem.jsx`            | Fila del carrito con +/- y eliminar         |
+| `OrderSummary`    | `features/cart/OrderSummary.jsx`        | Subtotal + Total + botón "Proceder al pago" |
+| `PaymentMethod`   | `features/checkout/PaymentMethod.jsx`   | Tabs Tarjeta/PayPal + formulario            |
+| `CheckoutSummary` | `features/checkout/CheckoutSummary.jsx` | Total + botón "Confirmar y pagar"           |
+
+### Pages (7)
+
+| Componente              | Archivo                           | Hooks usados                     |
+| ----------------------- | --------------------------------- | -------------------------------- |
+| `LandingPage`           | `pages/LandingPage.jsx`           | useState, useEffect, useNavigate |
+| `HomePage`              | `pages/HomePage.jsx`              | useSearchParams                  |
+| `BookDetailPage`        | `pages/BookDetailPage.jsx`        | useState, useParams              |
+| `CartPage`              | `pages/CartPage.jsx`              | useCartStore                     |
+| `CheckoutPage`          | `pages/CheckoutPage.jsx`          | useCartStore                     |
+| `OrderConfirmationPage` | `pages/OrderConfirmationPage.jsx` | useState                         |
+| `NotFoundPage`          | `pages/NotFoundPage.jsx`          | Link                             |
+
+---
+
+## 🎣 Store (Zustand)
 
 ### `useCartStore` - `store/useCartStore.js`
 
 ```javascript
-// Funciones disponibles
-addToCart(book, format);
-removeFromCart(cartId);
-decreaseQuantity(cartId);
-clearCart();
-getTotalItems();
-getCartTotal(); // { subtotal, discountAmount, total }
-applyCoupon(code);
+// Estado
+cart: []; // Array de items { id, title, author, price, image, quantity, ... }
+
+// Acciones
+addToCart(book); // Añade libro o incrementa cantidad
+decreaseQuantity(id); // Decrementa o elimina si quantity = 0
+removeFromCart(id); // Elimina item del carrito
+clearCart(); // Vacía el carrito
+getTotalItems(); // Retorna cantidad total de items
+getCartTotal(); // Retorna suma de precios
 ```
 
-### `useSearchStore` - `store/useSearchStore.js`
-
-```javascript
-// Funciones disponibles
-query; // string
-setQuery(text);
-filteredBooks; // computed
-```
+**Persistencia:** Usa `persist` middleware con localStorage.
 
 ---
 
-## 📏 Convenciones de Código
+## 📊 Datos Mock
+
+### `books.mock.js`
+
+30 libros con los campos:
+
+- `id`, `title`, `author`, `isbn`, `price`, `image`, `stock`, `description`
+- `category` (Clásico, Ciencia Ficción, Fantasía, Romance, Terror, Misterio, etc.)
+- `isBestSeller` (true/false)
+
+---
+
+## 🎨 Estilos
+
+### Tailwind CSS + Variables personalizadas
+
+Ver `DESIGN_SYSTEM.md` para colores y tipografía.
+
+| Variable     | Color   | Uso              |
+| ------------ | ------- | ---------------- |
+| `primary`    | #4F46E5 | Botones, enlaces |
+| `text-main`  | #0F172A | Títulos          |
+| `text-body`  | #475569 | Párrafos         |
+| `background` | #F8FAFC | Fondo página     |
+| `surface`    | #FFFFFF | Cards            |
+
+---
+
+## 📏 Convenciones
 
 ### Naming
 
-| Tipo         | Formato                     | Ejemplo            |
-| ------------ | --------------------------- | ------------------ |
-| Componentes  | PascalCase                  | `BookCard.jsx`     |
-| Hooks/Stores | camelCase con prefijo `use` | `useCartStore.js`  |
-| Funciones    | camelCase                   | `formatCurrency()` |
-| Constantes   | UPPER_SNAKE                 | `API_URL`          |
+- Componentes: `PascalCase.jsx`
+- Hooks/Stores: `useCamelCase.js`
+- Funciones: `camelCase()`
 
-### Commits (en inglés)
+### Commits (inglés)
 
 ```
-feat: add shopping cart functionality
-fix: resolve price calculation bug
-docs: update README
-style: format code with prettier
-refactor: extract validation logic
+feat: add new feature
+fix: resolve bug
+docs: update documentation
+style: format code
+refactor: restructure code
 ```
 
-### Imports (orden)
+### Orden de imports
 
-1. React / librerías externas
+1. React / librerías
 2. Componentes
 3. Stores / Hooks
 4. Utils / Data
-5. Estilos
 
 ---
 
-## ⚠️ Adaptación de Código
+## 🔗 Flujo de la Aplicación
 
-Si recibes código de otros miembros:
-
-1. Renombrar archivos según estructura definida
-2. Mover a carpeta correcta
-3. Actualizar imports
-4. Asegurar naming conventions
-5. Verificar que use los stores de Zustand definidos
+```
+┌─────────────┐
+│ LandingPage │ ─────5s────▶ ┌──────────┐
+└─────────────┘               │ HomePage │
+                              │ /home    │
+                              └────┬─────┘
+                                   │ clic libro
+                                   ▼
+                           ┌──────────────┐
+                           │BookDetailPage│
+                           │ /book/:id    │
+                           └──────┬───────┘
+                                  │ añadir al carrito
+                                  ▼
+                           ┌──────────┐
+                           │ CartPage │ ◀── clic 🛒 Header
+                           │ /cart    │
+                           └────┬─────┘
+                                │ Proceder al pago
+                                ▼
+                         ┌──────────────┐
+                         │ CheckoutPage │
+                         │ /checkout    │
+                         └──────┬───────┘
+                                │ Confirmar y pagar
+                                ▼
+                   ┌───────────────────────┐
+                   │OrderConfirmationPage  │
+                   │ /order-confirmation   │
+                   └───────────────────────┘
+```
 
 ---
 
-_Estilos y colores: ver `DESIGN_SYSTEM.md`_
+_Para colores y tipografía ver `DESIGN_SYSTEM.md`_
+_Para requisitos académicos ver `ACTIVIDAD_1_GUIA.md`_

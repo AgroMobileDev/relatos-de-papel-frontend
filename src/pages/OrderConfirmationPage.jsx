@@ -1,13 +1,9 @@
-/**
- * OrderConfirmationPage
- * ------------------------------------------------------------------
- * Página de confirmación de pedido exitoso.
- * Muestra mensaje de gracias, número de pedido y opciones de navegación.
- * Adaptado de ronny_andrade con colores del design system.
- */
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+/**
+ * Página de confirmación de compra exitosa.
+ */
 const OrderConfirmationPage = () => {
   // Generar número de pedido aleatorio (lazy initialization con useState)
   const [orderId] = useState(() => Math.floor(100000 + Math.random() * 900000));

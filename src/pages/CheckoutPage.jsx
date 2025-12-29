@@ -1,15 +1,11 @@
-/**
- * CheckoutPage
- * ------------------------------------------------------------------
- * Página de checkout con método de pago y resumen final.
- * Solo muestra PaymentMethod + CheckoutSummary.
- * Adaptado de ronny_andrade con colores del design system.
- */
 import { Link } from "react-router-dom";
 import { useCartStore } from "../store/useCartStore";
 import PaymentMethod from "../features/checkout/PaymentMethod";
 import CheckoutSummary from "../features/checkout/CheckoutSummary";
 
+/**
+ * Página de checkout con método de pago y resumen final.
+ */
 const CheckoutPage = () => {
   const cart = useCartStore((state) => state.cart);
 

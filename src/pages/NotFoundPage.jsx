@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 
+/**
+ * Página 404 para rutas no encontradas.
+ */
 const NotFoundPage = () => {
   return (
     <div className="max-w-6xl mx-auto px-6 py-16 text-center">

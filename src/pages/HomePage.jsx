@@ -1,8 +1,10 @@
 import BookCard from "../features/books/BookCard";
-import CartDrawer from "../features/cart/CartDrawer";
 import { books } from "../data/books.mock";
 import { useSearchParams } from "react-router-dom";
 
+/**
+ * Página de inicio con catálogo de libros y búsqueda.
+ */
 const HomePage = () => {
   const [searchParams] = useSearchParams(); //hook para obtener los query params
   const search = searchParams.get("search") || ""; //obtiene search del query param

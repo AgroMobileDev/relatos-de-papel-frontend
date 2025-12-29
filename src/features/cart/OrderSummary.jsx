@@ -1,13 +1,9 @@
-/**
- * OrderSummary
- * ------------------------------------------------------------------
- * Resumen del pedido en la página del carrito.
- * Muestra subtotal, total y botón "Proceder al pago".
- * Adaptado de ronny_andrade con colores del design system.
- */
 import { Link } from "react-router-dom";
 import { useCartStore } from "../../store/useCartStore";
 
+/**
+ * Resumen del pedido con total y botón para ir a checkout.
+ */
 const OrderSummary = () => {
   const getCartTotal = useCartStore((state) => state.getCartTotal);
   const total = getCartTotal();

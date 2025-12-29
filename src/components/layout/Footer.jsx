@@ -1,3 +1,6 @@
+/**
+ * Pie de página con derechos de autor.
+ */
 const Footer = () => {
   return (
     <footer className="bg-white border-t border-border px-6 py-6">

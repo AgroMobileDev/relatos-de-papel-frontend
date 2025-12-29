@@ -1,12 +1,8 @@
-/**
- * PaymentMethod
- * ------------------------------------------------------------------
- * Componente de selección de método de pago (Tarjeta/PayPal).
- * Incluye formulario mock para tarjeta de crédito.
- * Adaptado de ronny_andrade con colores del design system.
- */
 import { useState } from "react";
 
+/**
+ * Selector de método de pago (Tarjeta o PayPal).
+ */
 const PaymentMethod = () => {
   const [method, setMethod] = useState("card"); // 'card' | 'paypal'
   const [cardData, setCardData] = useState({

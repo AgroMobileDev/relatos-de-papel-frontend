@@ -1,10 +1,6 @@
 /**
- * books.mock.js
- * ------------------------------------------------------------------
- * Mock data for books catalog. Used for frontend development
- * without backend integration.
+ * Datos mock del catálogo de libros.
  */
-
 export const books = [
   {
     id: 1,

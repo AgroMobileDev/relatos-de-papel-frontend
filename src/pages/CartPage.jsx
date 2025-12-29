@@ -1,16 +1,11 @@
-/**
- * CartPage
- * ------------------------------------------------------------------
- * Página del carrito de compras.
- * Muestra lista de items con controles de cantidad y resumen del pedido.
- * Botón "Proceder al pago" navega a /checkout.
- * Adaptado de ronny_andrade con colores del design system.
- */
 import { Link } from "react-router-dom";
 import { useCartStore } from "../store/useCartStore";
 import CartItem from "../features/cart/CartItem";
 import OrderSummary from "../features/cart/OrderSummary";
 
+/**
+ * Página del carrito con lista de items y resumen del pedido.
+ */
 const CartPage = () => {
   const cart = useCartStore((state) => state.cart);
 

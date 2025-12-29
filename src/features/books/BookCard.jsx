@@ -1,6 +1,9 @@
 import { useCartStore } from "../../store/useCartStore";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Tarjeta de libro con imagen, título, precio y botón de añadir.
+ */
 const BookCard = ({ book }) => {
   const navigate = useNavigate();
   const addToCart = useCartStore((state) => state.addToCart);

@@ -1,12 +1,8 @@
-/**
- * CartItem
- * ------------------------------------------------------------------
- * Item individual del carrito con controles de cantidad.
- * Muestra imagen, título, descripción, botones +/- y eliminar.
- * Adaptado de ronny_andrade con colores del design system.
- */
 import { useCartStore } from "../../store/useCartStore";
 
+/**
+ * Item del carrito con controles de cantidad y eliminar.
+ */
 const CartItem = ({ item }) => {
   const addToCart = useCartStore((state) => state.addToCart);
   const decreaseQuantity = useCartStore((state) => state.decreaseQuantity);

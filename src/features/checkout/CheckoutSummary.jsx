@@ -1,13 +1,9 @@
-/**
- * CheckoutSummary
- * ------------------------------------------------------------------
- * Muestra el resumen final del pedido con total y botón de confirmación.
- * Limpia el carrito y redirige a la página de confirmación.
- * Adaptado de ronny_andrade con colores del design system.
- */
 import { useNavigate } from "react-router-dom";
 import { useCartStore } from "../../store/useCartStore";
 
+/**
+ * Resumen final del pedido y botón para confirmar compra.
+ */
 const CheckoutSummary = () => {
   const navigate = useNavigate();
   const getCartTotal = useCartStore((state) => state.getCartTotal);

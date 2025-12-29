@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { useCartStore } from "../../store/useCartStore";
 
+/**
+ * Encabezado con logo, buscador y carrito.
+ */
 const Header = () => {
   const navigate = useNavigate(); //navegador
   const cartCount = useCartStore((state) => state.getTotalItems()); //cantidad total de items en carrito

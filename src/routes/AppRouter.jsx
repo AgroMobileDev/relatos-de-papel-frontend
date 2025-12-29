@@ -8,6 +8,9 @@ import CheckoutPage from "../pages/CheckoutPage";
 import OrderConfirmationPage from "../pages/OrderConfirmationPage";
 import NotFoundPage from "../pages/NotFoundPage";
 
+/**
+ * Configuración de rutas de la aplicación.
+ */
 export const AppRouter = () => {
   return (
     <BrowserRouter>
