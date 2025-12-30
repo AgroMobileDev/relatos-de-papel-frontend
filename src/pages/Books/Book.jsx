@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useLocation, Link, useNavigate } from "react-router-dom";
+//import { useLocation, Link, useNavigate } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useCart } from "../../hooks/useCart";
 
 export default function Book() {
   const location = useLocation();
-  const navigate = useNavigate();
+ // const navigate = useNavigate();
   const book = location.state;
   const { addToCart } = useCart();
 
