@@ -1,90 +1,141 @@
-# 📘 Relatos de Papel - Documentación y Guía de Arquitectura Frontend
+# 📘 Guía de Desarrollo - Relatos de Papel
 
-Este documento define la arquitectura, estructura de archivos y guías de desarrollo para la **Actividad 1: Desarrollo Frontend con React** de la asignatura Desarrollo Web Full Stack.
-
----
-
-## 🎯 1. Objetivos y Contexto del Proyecto
-
-El desarrollo de esta actividad se enmarca en los objetivos generales de la asignatura y del proyecto transversal "Relatos de Papel". El propósito no es solo crear una interfaz, sino preparar el sistema para una arquitectura completa.
-
-### Objetivos Globales (Máster)
-
-1.  [cite_start]**Desarrollo Frontend:** Construir un frontal robusto utilizando HTML5, CSS3, JavaScript y React[cite: 5].
-2.  [cite_start]**Visión Backend (Integración Futura):** Preparar el terreno para un _back-end_ basado en una arquitectura de **microservicios**, donde cada servicio expondrá una API REST con Java y Spring[cite: 6].
-    - _Nota para el equipo:_ Aunque ahora usemos _mocks_, la estructura de carpetas `services/` y los tipos de datos deben respetar esta futura integración.
+> Documento técnico oficial. Todo código debe seguir estos lineamientos.
 
 ---
 
-## 🏗 2. Arquitectura de Componentes
+## 📂 Estructura de Carpetas
 
-[cite_start]Se requiere implementar un **mínimo de 10 componentes funcionales**[cite: 26]. A continuación, se detalla la división propuesta:
-
-### Layout & Estructura Global
-
-1.  **`MainLayout`**: Contenedor principal (Wrapper).
-2.  **`Navbar`**: Barra de navegación superior con acceso al carrito.
-3.  **`Footer`**: Pie de página informativo.
-
-### Vistas (Pages / Routes)
-
-4.  **`LandingPage`**: Vista de bienvenida. [cite_start]Redirige automáticamente a `/home` tras 5 segundos.
-5.  **`HomePage`**: Catálogo principal. [cite_start]Muestra el buscador y la lista de libros[cite: 34].
-6.  **`BookDetailPage`**: Detalle del libro. [cite_start]Permite ver info extendida y añadir al carrito[cite: 38].
-7.  **`CheckoutPage`**: Vista de pago. [cite_start]Muestra resumen del pedido y botón para finalizar compra[cite: 41].
-
-### Features & UI Components (Reutilizables)
-
-8.  [cite_start]**`SearchBar`**: Input para filtrar libros por título.
-9.  **`BookList`**: Grid que itera sobre los datos para renderizar tarjetas.
-10. **`BookCard`**: Tarjeta individual (Imagen, Título, Precio, Botón).
-11. [cite_start]**`CartDrawer`**: Componente (modal/lateral) que muestra el carrito en Home y Detalle[cite: 39].
-12. [cite_start]**`CartItem`**: Item individual dentro del carrito con opción de eliminar[cite: 40].
-13. **`OrderSummary`**: Componente de resumen financiero para el Checkout.
-14. **`Button`**: Componente base para botones (Primary/Secondary).
-
----
-
-## 🎣 3. Estrategia de Hooks
-
-### Hooks Nativos
-
-- [cite_start]**`useState`**: Gestión de estados locales y filtros[cite: 27].
-- [cite_start]**`useEffect`**: Ciclo de vida (Carga de datos y timer de Landing)[cite: 27].
-
-### [cite_start]Custom Hook: `useCart` (Obligatorio) [cite: 28]
-
-Se implementará `useCart` para centralizar la lógica del carrito.
-
-- **`addToCart(book)`**: Añade libro o incrementa cantidad.
-- **`removeFromCart(id)`**: Elimina libro.
-- [cite_start]**`clearCart()`**: Vacía el carrito tras el "pago"[cite: 42].
-- **`totalAmount`**: Calcula el total.
-
----
-
-## 📂 4. Estructura de Carpetas (Scalable Structure)
-
-Diseñada para separar la vista de la lógica de negocio y facilitar la conexión futura con Spring Boot.
-
-```text
-src/
-├── assets/             # Recursos estáticos
-├── components/         # Componentes UI
-│   ├── layout/         # (Navbar, Footer, MainLayout)
-│   └── ui/             # (Button, Input, Card)
-├── context/            # Contexto global (CartContext)
-├── data/               # MOCKS (Datos de prueba) [cite: 45]
-│   └── books.mock.js   # JSON con libros de prueba
-├── features/           # Componentes por dominio
-│   ├── books/          # (BookList, BookCard, SearchBar)
-│   ├── cart/           # (CartDrawer, CartItem)
-│   └── checkout/       # (OrderSummary)
-├── hooks/              # Hooks personalizados
-│   └── useCart.js      # Custom Hook obligatorio
-├── pages/              # Vistas (Landing, Home, Detail, Checkout)
-├── routes/             # Configuración de React Router
-├── services/           # Capa de API (Simulación)
-│   └── bookService.js  # Retorna promesas con los mocks
-└── utils/              # Helpers (formato moneda, validaciones)
 ```
+src/
+├── assets/              # Imágenes, iconos
+├── components/
+│   ├── layout/          # Navbar, Footer, MainLayout
+│   └── ui/              # Button, Badge, Loader, EmptyState
+├── data/                # books.mock.js
+├── features/
+│   ├── books/           # BookCard, BookList, SearchBar
+│   ├── cart/            # CartDrawer, CartItem
+│   └── checkout/        # OrderSummary
+├── hooks/               # Custom hooks adicionales
+├── pages/               # LandingPage, HomePage, BookDetailPage, CheckoutPage, NotFoundPage
+├── routes/              # AppRouter.jsx
+├── store/               # Zustand stores (useCartStore, useSearchStore)
+├── services/            # API calls (futuro)
+└── utils/               # Helpers (formatCurrency, etc.)
+```
+
+---
+
+## 🧩 Componentes (18 total)
+
+### Layout
+
+| Componente   | Ubicación            |
+| ------------ | -------------------- |
+| `MainLayout` | `components/layout/` |
+| `Navbar`     | `components/layout/` |
+| `Footer`     | `components/layout/` |
+
+### UI Reutilizables
+
+| Componente   | Ubicación        |
+| ------------ | ---------------- |
+| `Button`     | `components/ui/` |
+| `Badge`      | `components/ui/` |
+| `Loader`     | `components/ui/` |
+| `EmptyState` | `components/ui/` |
+
+### Features
+
+| Componente     | Ubicación            |
+| -------------- | -------------------- |
+| `SearchBar`    | `features/books/`    |
+| `BookList`     | `features/books/`    |
+| `BookCard`     | `features/books/`    |
+| `CartDrawer`   | `features/cart/`     |
+| `CartItem`     | `features/cart/`     |
+| `OrderSummary` | `features/checkout/` |
+
+### Pages
+
+| Componente       | Ruta        |
+| ---------------- | ----------- |
+| `LandingPage`    | `/`         |
+| `HomePage`       | `/home`     |
+| `BookDetailPage` | `/book/:id` |
+| `CheckoutPage`   | `/checkout` |
+| `NotFoundPage`   | `*`         |
+
+---
+
+## 🎣 Stores (Zustand)
+
+### `useCartStore` - `store/useCartStore.js`
+
+```javascript
+// Funciones disponibles
+addToCart(book, format);
+removeFromCart(cartId);
+decreaseQuantity(cartId);
+clearCart();
+getTotalItems();
+getCartTotal(); // { subtotal, discountAmount, total }
+applyCoupon(code);
+```
+
+### `useSearchStore` - `store/useSearchStore.js`
+
+```javascript
+// Funciones disponibles
+query; // string
+setQuery(text);
+filteredBooks; // computed
+```
+
+---
+
+## 📏 Convenciones de Código
+
+### Naming
+
+| Tipo         | Formato                     | Ejemplo            |
+| ------------ | --------------------------- | ------------------ |
+| Componentes  | PascalCase                  | `BookCard.jsx`     |
+| Hooks/Stores | camelCase con prefijo `use` | `useCartStore.js`  |
+| Funciones    | camelCase                   | `formatCurrency()` |
+| Constantes   | UPPER_SNAKE                 | `API_URL`          |
+
+### Commits (en inglés)
+
+```
+feat: add shopping cart functionality
+fix: resolve price calculation bug
+docs: update README
+style: format code with prettier
+refactor: extract validation logic
+```
+
+### Imports (orden)
+
+1. React / librerías externas
+2. Componentes
+3. Stores / Hooks
+4. Utils / Data
+5. Estilos
+
+---
+
+## ⚠️ Adaptación de Código
+
+Si recibes código de otros miembros:
+
+1. Renombrar archivos según estructura definida
+2. Mover a carpeta correcta
+3. Actualizar imports
+4. Asegurar naming conventions
+5. Verificar que use los stores de Zustand definidos
+
+---
+
+_Estilos y colores: ver `DESIGN_SYSTEM.md`_
