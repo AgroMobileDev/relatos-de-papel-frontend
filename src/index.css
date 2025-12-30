@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
 
 @theme {
   /* Typography */
@@ -11,13 +11,25 @@
   --color-primary-dark: #312e81;
   --color-accent: #f59e0b;
 
-  /* Neutrals override or extend if needed, but Tailwind has Slate built-in usually.
-     We can map specific semantic names if we want */
+  /* Neutral Colors */
+  --color-surface: #ffffff;
+  --color-background: #f8fafc;
+  --color-border: #e2e8f0;
+
+  /* Text Colors */
+  --color-text-main: #0f172a;
+  --color-text-body: #475569;
+  --color-text-muted: #94a3b8;
+
+  /* Feedback Colors */
+  --color-success: #10b981;
+  --color-error: #f43f5e;
+  --color-warning: #f59e0b;
 }
 
 /* Base styles */
 body {
   background-color: var(--color-background);
-  color: #0f172a;
+  color: var(--color-text-main);
   font-family: var(--font-sans);
 }
