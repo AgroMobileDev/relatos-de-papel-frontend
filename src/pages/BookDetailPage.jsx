@@ -9,7 +9,7 @@ import { useCartStore } from "../store/useCartStore";
 const BookDetailPage = () => {
   const { id } = useParams();
   const addToCart = useCartStore((state) => state.addToCart);
-  const [showToast, setShowToast] = useState(false);
+  const [showToast, setShowToast] = useState(false); //estado para mostrar el toast
 
   // Buscar el libro por ID
   const book = books.find((b) => b.id === parseInt(id));
@@ -28,15 +28,16 @@ const BookDetailPage = () => {
     );
   }
 
+  //funcion para añadir al carrito y mostrar toast
   const handleAddToCart = () => {
     addToCart(book);
     setShowToast(true);
-    setTimeout(() => setShowToast(false), 2000);
+    setTimeout(() => setShowToast(false), 2000); //oculta el toast despues de 2 segundos
   };
 
   return (
     <div className="min-h-screen py-12">
-      {/* Toast de confirmación */}
+      {/* Toast de confirmacion */}
       {showToast && (
         <div className="fixed top-20 right-4 bg-success text-white px-6 py-3 rounded-lg shadow-lg z-50">
           ✓ {book.title} añadido al carrito

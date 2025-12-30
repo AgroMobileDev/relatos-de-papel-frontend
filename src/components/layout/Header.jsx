@@ -20,7 +20,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white border-b border-border">
+    <header className="bg-white border-b border-border sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
         {/* logo */}
         <Link to="/home" className="flex items-center gap-3 shrink-0">
