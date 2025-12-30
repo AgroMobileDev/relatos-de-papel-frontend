@@ -12,10 +12,8 @@ const CheckoutSummary = () => {
   const total = getCartTotal();
 
   const handleConfirmOrder = () => {
-    // Limpiar carrito
-    clearCart();
-    // Redirigir a confirmación
-    navigate("/order-confirmation");
+    // Redirigir a confirmación con estado para permitir acceso
+    navigate("/order-confirmation", { state: { orderCompleted: true } });
   };
 
   return (

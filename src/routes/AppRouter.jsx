@@ -8,6 +8,10 @@ import CartPage from "../pages/CartPage";
 import CheckoutPage from "../pages/CheckoutPage";
 import OrderConfirmationPage from "../pages/OrderConfirmationPage";
 import NotFoundPage from "../pages/NotFoundPage";
+import {
+  ProtectedCheckout,
+  ProtectedOrderConfirmation,
+} from "./ProtectedRoutes";
 
 /**
  * Configuración de rutas de la aplicación.
@@ -23,10 +27,21 @@ export const AppRouter = () => {
           <Route path="/home" element={<HomePage />} />
           <Route path="/book/:id" element={<BookDetailPage />} />
           <Route path="/cart" element={<CartPage />} />
-          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route
+            path="/checkout"
+            element={
+              <ProtectedCheckout>
+                <CheckoutPage />
+              </ProtectedCheckout>
+            }
+          />
           <Route
             path="/order-confirmation"
-            element={<OrderConfirmationPage />}
+            element={
+              <ProtectedOrderConfirmation>
+                <OrderConfirmationPage />
+              </ProtectedOrderConfirmation>
+            }
           />
           <Route path="*" element={<NotFoundPage />} />
         </Route>

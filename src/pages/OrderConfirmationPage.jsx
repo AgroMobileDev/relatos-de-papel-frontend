@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useCartStore } from "../store/useCartStore";
 
 /**
  * Página de confirmación de compra exitosa.
@@ -7,6 +8,16 @@ import { Link } from "react-router-dom";
 const OrderConfirmationPage = () => {
   // Generar número de pedido aleatorio (lazy initialization con useState)
   const [orderId] = useState(() => Math.floor(100000 + Math.random() * 900000));
+  const clearCart = useCartStore((state) => state.clearCart);
+
+  useEffect(() => {
+    // Limpiar el carrito al entrar a la página de confirmación
+    clearCart();
+
+    // Limpiar el estado de la navegación para evitar regresar con el botón "Atrás"
+    // Esto borra el flag { orderCompleted: true } del historial actual
+    window.history.replaceState({}, document.title);
+  }, [clearCart]);
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">

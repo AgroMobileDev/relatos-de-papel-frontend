@@ -9,20 +9,6 @@ import CheckoutSummary from "../features/checkout/CheckoutSummary";
 const CheckoutPage = () => {
   const cart = useCartStore((state) => state.cart);
 
-  // Si el carrito está vacío
-  if (cart.length === 0) {
-    return (
-      <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
-        <h1 className="text-2xl font-bold text-text-main mb-4">
-          Tu carrito está vacío
-        </h1>
-        <Link to="/home" className="text-primary hover:underline">
-          Volver a la tienda
-        </Link>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen py-8 lg:py-12">
       <div className="container mx-auto px-4 max-w-6xl">
