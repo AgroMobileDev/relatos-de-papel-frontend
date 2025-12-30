@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "../components/layout/MainLayout";
+import ScrollToTop from "../components/layout/ScrollToTop";
 import LandingPage from "../pages/LandingPage";
 import HomePage from "../pages/HomePage";
 import BookDetailPage from "../pages/BookDetailPage";
@@ -14,6 +15,7 @@ import NotFoundPage from "../pages/NotFoundPage";
 export const AppRouter = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         {/*rutas con layout*/}

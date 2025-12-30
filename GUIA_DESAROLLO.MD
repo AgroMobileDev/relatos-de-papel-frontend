@@ -13,7 +13,8 @@ src/
 │   └── layout/                # Componentes de layout
 │       ├── Header.jsx         # Header con buscador y carrito
 │       ├── Footer.jsx         # Pie de página
-│       └── MainLayout.jsx     # Layout principal con Outlet
+│       ├── MainLayout.jsx     # Layout principal con Outlet
+│       └── ScrollToTop.jsx    # Resetea scroll al cambiar ruta
 ├── data/
 │   └── books.mock.js          # 30 libros con category, isBestSeller
 ├── features/
@@ -25,7 +26,8 @@ src/
 │   └── checkout/
 │       ├── PaymentMethod.jsx  # Selector Tarjeta/PayPal
 │       └── CheckoutSummary.jsx # Resumen final + confirmar
-├── hooks/                     # Custom hooks (pendiente)
+├── hooks/
+│   └── useCountdown.js        # Custom hook para countdown
 ├── pages/
 │   ├── LandingPage.jsx        # Splash con countdown 5s
 │   ├── HomePage.jsx           # Catálogo con búsqueda
@@ -60,15 +62,16 @@ src/
 
 ---
 
-## 🧩 Componentes (15 total)
+## 🧩 Componentes (16 total)
 
-### Layout (3)
+### Layout (4)
 
-| Componente   | Archivo                            | Descripción                         |
-| ------------ | ---------------------------------- | ----------------------------------- |
-| `Header`     | `components/layout/Header.jsx`     | Logo + buscador + carrito con badge |
-| `Footer`     | `components/layout/Footer.jsx`     | Pie de página                       |
-| `MainLayout` | `components/layout/MainLayout.jsx` | Header + Outlet + Footer            |
+| Componente    | Archivo                             | Descripción                         |
+| ------------- | ----------------------------------- | ----------------------------------- |
+| `Header`      | `components/layout/Header.jsx`      | Logo + buscador + carrito con badge |
+| `Footer`      | `components/layout/Footer.jsx`      | Pie de página                       |
+| `MainLayout`  | `components/layout/MainLayout.jsx`  | Header + Outlet + Footer            |
+| `ScrollToTop` | `components/layout/ScrollToTop.jsx` | Resetea scroll al cambiar de ruta   |
 
 ### Features (5)
 
@@ -82,19 +85,40 @@ src/
 
 ### Pages (7)
 
-| Componente              | Archivo                           | Hooks usados                     |
-| ----------------------- | --------------------------------- | -------------------------------- |
-| `LandingPage`           | `pages/LandingPage.jsx`           | useState, useEffect, useNavigate |
-| `HomePage`              | `pages/HomePage.jsx`              | useSearchParams                  |
-| `BookDetailPage`        | `pages/BookDetailPage.jsx`        | useState, useParams              |
-| `CartPage`              | `pages/CartPage.jsx`              | useCartStore                     |
-| `CheckoutPage`          | `pages/CheckoutPage.jsx`          | useCartStore                     |
-| `OrderConfirmationPage` | `pages/OrderConfirmationPage.jsx` | useState                         |
-| `NotFoundPage`          | `pages/NotFoundPage.jsx`          | Link                             |
+| Componente              | Archivo                           | Hooks usados              |
+| ----------------------- | --------------------------------- | ------------------------- |
+| `LandingPage`           | `pages/LandingPage.jsx`           | useCountdown, useNavigate |
+| `HomePage`              | `pages/HomePage.jsx`              | useSearchParams           |
+| `BookDetailPage`        | `pages/BookDetailPage.jsx`        | useState, useParams       |
+| `CartPage`              | `pages/CartPage.jsx`              | useCartStore              |
+| `CheckoutPage`          | `pages/CheckoutPage.jsx`          | useCartStore              |
+| `OrderConfirmationPage` | `pages/OrderConfirmationPage.jsx` | useState                  |
+| `NotFoundPage`          | `pages/NotFoundPage.jsx`          | Link                      |
 
 ---
 
-## 🎣 Store (Zustand)
+## 🎣 Custom Hooks
+
+### `useCountdown` - `hooks/useCountdown.js`
+
+```javascript
+// Parámetros
+initialValue; // Número inicial del contador
+onComplete; // Callback al llegar a 0
+
+// Retorna
+count; // Valor actual del contador
+```
+
+**Uso:**
+
+```javascript
+const countdown = useCountdown(5, () => navigate("/home"));
+```
+
+---
+
+## 🛒 Store (Zustand)
 
 ### `useCartStore` - `store/useCartStore.js`
 

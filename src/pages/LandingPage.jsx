@@ -1,26 +1,13 @@
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import useCountdown from "../hooks/useCountdown";
 import logo from "../assets/logo.png";
 
 /**
  * Pantalla de bienvenida con countdown de 5 segundos.
  */
 const LandingPage = () => {
-  const navigate = useNavigate(); //hook para redirigir
-  const [countdown, setCountdown] = useState(5); //hook para el contador
-  useEffect(() => {
-    //llega a 0 redirige a home
-    if (countdown === 0) {
-      navigate("/home");
-      return;
-    }
-    // cada segundo resta 1 al contador
-    const interval = setInterval(() => {
-      setCountdown((prev) => prev - 1);
-    }, 1000);
-    // limpia intervalo
-    return () => clearInterval(interval);
-  }, [countdown, navigate]);
+  const navigate = useNavigate();
+  const countdown = useCountdown(5, () => navigate("/home")); //custom hook redirige a /home en 5 segundos
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center">
@@ -36,7 +23,13 @@ const LandingPage = () => {
         <p className="text-xl mb-8 text-text-body">
           Tu librería online favorita
         </p>
-        <p className="text-lg text-text-muted">
+        <button
+          onClick={() => navigate("/home")}
+          className="bg-primary text-white px-6 py-3 rounded-lg font-bold hover:bg-primary-dark transition"
+        >
+          Entrar ahora
+        </button>
+        <p className="text-lg text-text-muted mt-6">
           Redirigiendo en {countdown}...
         </p>
       </div>
