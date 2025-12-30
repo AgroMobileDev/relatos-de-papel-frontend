@@ -1,234 +1,225 @@
-# 📘 Guía de Desarrollo - Relatos de Papel
+# 📘 Guía del Proyecto - Relatos de Papel
 
-> Documento técnico oficial del proyecto. Referencia para todo el equipo.
+> **Documento para presentación del equipo.** Usar para la reunión y el video explicativo.
 
 ---
 
-## 📂 Estructura de Carpetas
+## 🚀 Inicio Rápido
+
+```bash
+npm install    # Instalar dependencias
+npm run dev    # Iniciar servidor de desarrollo
+```
+
+---
+
+## 📂 Estructura del Proyecto
 
 ```
 src/
-├── assets/                    # Imágenes (logo.png)
-├── components/
-│   └── layout/                # Componentes de layout
-│       ├── Header.jsx         # Header con buscador y carrito
-│       ├── Footer.jsx         # Pie de página
-│       ├── MainLayout.jsx     # Layout principal con Outlet
-│       └── ScrollToTop.jsx    # Resetea scroll al cambiar ruta
-├── data/
-│   └── books.mock.js          # 30 libros con category, isBestSeller
-├── features/
-│   ├── books/
-│   │   └── BookCard.jsx       # Tarjeta de libro para el catálogo
-│   ├── cart/
-│   │   ├── CartItem.jsx       # Item del carrito con controles +/-
-│   │   └── OrderSummary.jsx   # Resumen en página de carrito
-│   └── checkout/
-│       ├── PaymentMethod.jsx  # Selector Tarjeta/PayPal
-│       └── CheckoutSummary.jsx # Resumen final + confirmar
-├── hooks/
-│   └── useCountdown.js        # Custom hook para countdown
-├── pages/
-│   ├── LandingPage.jsx        # Splash con countdown 5s
-│   ├── HomePage.jsx           # Catálogo con búsqueda
-│   ├── BookDetailPage.jsx     # Detalle del libro
-│   ├── CartPage.jsx           # Vista del carrito
-│   ├── CheckoutPage.jsx       # Método de pago
-│   ├── OrderConfirmationPage.jsx # Confirmación de compra
-│   └── NotFoundPage.jsx       # Página 404
-├── routes/
-│   └── AppRouter.jsx          # Configuración de rutas
-├── store/
-│   └── useCartStore.js        # Estado global del carrito (Zustand)
-├── services/                  # API calls (futuro)
-├── utils/                     # Helpers (futuro)
-├── index.css                  # Variables CSS + Tailwind
-└── main.jsx                   # Entry point
+├── assets/                 → Logo de la tienda
+├── components/layout/      → Componentes de estructura (Header, Footer, etc.)
+├── data/                   → Datos mock (30 libros)
+├── features/               → Componentes por funcionalidad
+│   ├── books/              → BookCard
+│   ├── cart/               → CartItem, OrderSummary
+│   └── checkout/           → PaymentMethod, CheckoutSummary
+├── hooks/                  → Custom hooks (useCountdown)
+├── pages/                  → Páginas de la aplicación
+├── routes/                 → Configuración de rutas
+└── store/                  → Estado global (Zustand)
 ```
 
 ---
 
-## 🗺️ Rutas de la Aplicación
+## 🗺️ Rutas y Páginas
 
-| Ruta                  | Página                | Descripción                                 |
-| --------------------- | --------------------- | ------------------------------------------- |
-| `/`                   | LandingPage           | Splash screen, redirige a /home en 5s       |
-| `/home`               | HomePage              | Catálogo de libros con buscador             |
-| `/book/:id`           | BookDetailPage        | Detalle + añadir al carrito                 |
-| `/cart`               | CartPage              | Lista de items + resumen + proceder al pago |
-| `/checkout`           | CheckoutPage          | Método de pago + confirmar                  |
-| `/order-confirmation` | OrderConfirmationPage | Mensaje de gracias                          |
-| `*`                   | NotFoundPage          | Página 404                                  |
-
----
-
-## 🧩 Componentes (16 total)
-
-### Layout (4)
-
-| Componente    | Archivo                             | Descripción                         |
-| ------------- | ----------------------------------- | ----------------------------------- |
-| `Header`      | `components/layout/Header.jsx`      | Logo + buscador + carrito con badge |
-| `Footer`      | `components/layout/Footer.jsx`      | Pie de página                       |
-| `MainLayout`  | `components/layout/MainLayout.jsx`  | Header + Outlet + Footer            |
-| `ScrollToTop` | `components/layout/ScrollToTop.jsx` | Resetea scroll al cambiar de ruta   |
-
-### Features (5)
-
-| Componente        | Archivo                                 | Descripción                                 |
-| ----------------- | --------------------------------------- | ------------------------------------------- |
-| `BookCard`        | `features/books/BookCard.jsx`           | Tarjeta con imagen, título, precio, botón   |
-| `CartItem`        | `features/cart/CartItem.jsx`            | Fila del carrito con +/- y eliminar         |
-| `OrderSummary`    | `features/cart/OrderSummary.jsx`        | Subtotal + Total + botón "Proceder al pago" |
-| `PaymentMethod`   | `features/checkout/PaymentMethod.jsx`   | Tabs Tarjeta/PayPal + formulario            |
-| `CheckoutSummary` | `features/checkout/CheckoutSummary.jsx` | Total + botón "Confirmar y pagar"           |
-
-### Pages (7)
-
-| Componente              | Archivo                           | Hooks usados              |
-| ----------------------- | --------------------------------- | ------------------------- |
-| `LandingPage`           | `pages/LandingPage.jsx`           | useCountdown, useNavigate |
-| `HomePage`              | `pages/HomePage.jsx`              | useSearchParams           |
-| `BookDetailPage`        | `pages/BookDetailPage.jsx`        | useState, useParams       |
-| `CartPage`              | `pages/CartPage.jsx`              | useCartStore              |
-| `CheckoutPage`          | `pages/CheckoutPage.jsx`          | useCartStore              |
-| `OrderConfirmationPage` | `pages/OrderConfirmationPage.jsx` | useState                  |
-| `NotFoundPage`          | `pages/NotFoundPage.jsx`          | Link                      |
+| Ruta                  | Página                | Descripción rápida                         |
+| --------------------- | --------------------- | ------------------------------------------ |
+| `/`                   | LandingPage           | Splash con countdown 5s → redirige a /home |
+| `/home`               | HomePage              | Catálogo de libros + buscador              |
+| `/book/:id`           | BookDetailPage        | Detalle del libro + añadir al carrito      |
+| `/cart`               | CartPage              | Carrito con cantidad +/- y eliminar        |
+| `/checkout`           | CheckoutPage          | Resumen + método de pago + confirmar       |
+| `/order-confirmation` | OrderConfirmationPage | ¡Gracias por tu compra!                    |
 
 ---
 
-## 🎣 Custom Hooks
+## 📄 Detalle de Cada Página
 
-### `useCountdown` - `hooks/useCountdown.js`
+### 1️⃣ LandingPage (`/`)
 
-```javascript
-// Parámetros
-initialValue; // Número inicial del contador
-onComplete; // Callback al llegar a 0
+**Archivo:** `src/pages/LandingPage.jsx`
 
-// Retorna
-count; // Valor actual del contador
-```
-
-**Uso:**
-
-```javascript
-const countdown = useCountdown(5, () => navigate("/home"));
-```
+| Elemento           | Descripción                                                        |
+| ------------------ | ------------------------------------------------------------------ |
+| **Función**        | Pantalla de bienvenida con countdown                               |
+| **Hooks usados**   | `useNavigate`, `useCountdown` (custom hook)                        |
+| **Comportamiento** | Redirige a `/home` en 5 segundos o al hacer clic en "Entrar ahora" |
 
 ---
 
-## 🛒 Store (Zustand)
+### 2️⃣ HomePage (`/home`)
 
-### `useCartStore` - `store/useCartStore.js`
+**Archivo:** `src/pages/HomePage.jsx`
+
+| Elemento           | Descripción                                            |
+| ------------------ | ------------------------------------------------------ |
+| **Función**        | Catálogo de libros con filtro de búsqueda              |
+| **Hooks usados**   | `useSearchParams`                                      |
+| **Componentes**    | `BookCard` (uno por cada libro)                        |
+| **Comportamiento** | Filtra libros por título usando query param `?search=` |
+
+---
+
+### 3️⃣ BookDetailPage (`/book/:id`)
+
+**Archivo:** `src/pages/BookDetailPage.jsx`
+
+| Elemento           | Descripción                                              |
+| ------------------ | -------------------------------------------------------- |
+| **Función**        | Muestra detalles de un libro y permite añadir al carrito |
+| **Hooks usados**   | `useState`, `useParams`, `useCartStore`                  |
+| **Comportamiento** | Muestra toast de confirmación al añadir                  |
+
+---
+
+### 4️⃣ CartPage (`/cart`)
+
+**Archivo:** `src/pages/CartPage.jsx`
+
+| Elemento           | Descripción                                                  |
+| ------------------ | ------------------------------------------------------------ |
+| **Función**        | Lista de libros en el carrito                                |
+| **Hooks usados**   | `useCartStore`                                               |
+| **Componentes**    | `CartItem` (uno por libro), `OrderSummary`                   |
+| **Comportamiento** | Permite modificar cantidad (+/-), eliminar, proceder al pago |
+
+---
+
+### 5️⃣ CheckoutPage (`/checkout`)
+
+**Archivo:** `src/pages/CheckoutPage.jsx`
+
+| Elemento           | Descripción                                                 |
+| ------------------ | ----------------------------------------------------------- |
+| **Función**        | Resumen del pedido + selección de pago                      |
+| **Hooks usados**   | `useCartStore`                                              |
+| **Componentes**    | `PaymentMethod`, `CheckoutSummary`                          |
+| **Comportamiento** | Muestra lista de libros + total + botón "Confirmar y Pagar" |
+
+---
+
+### 6️⃣ OrderConfirmationPage (`/order-confirmation`)
+
+**Archivo:** `src/pages/OrderConfirmationPage.jsx`
+
+| Elemento           | Descripción                                  |
+| ------------------ | -------------------------------------------- |
+| **Función**        | Mensaje de agradecimiento                    |
+| **Hooks usados**   | `useState` (para número de pedido aleatorio) |
+| **Comportamiento** | Muestra confirmación con número de pedido    |
+
+---
+
+## 🧩 Componentes Clave
+
+### Layout (en `components/layout/`)
+
+| Componente    | Función                                   |
+| ------------- | ----------------------------------------- |
+| `Header`      | Logo + buscador + ícono carrito con badge |
+| `Footer`      | Derechos de autor                         |
+| `MainLayout`  | Envuelve páginas con Header y Footer      |
+| `ScrollToTop` | Resetea scroll al cambiar de página       |
+
+### Features (en `features/`)
+
+| Componente        | Función                                                 |
+| ----------------- | ------------------------------------------------------- |
+| `BookCard`        | Tarjeta de libro (imagen, título, precio, botón añadir) |
+| `CartItem`        | Fila del carrito con controles +/- y eliminar           |
+| `OrderSummary`    | Subtotal + Total + botón "Proceder al pago"             |
+| `PaymentMethod`   | Selector Tarjeta/PayPal con formulario                  |
+| `CheckoutSummary` | Total final + botón "Confirmar y Pagar"                 |
+
+---
+
+## 🎣 Hooks Utilizados
+
+### Hooks de React
+
+| Hook              | Uso                                         |
+| ----------------- | ------------------------------------------- |
+| `useState`        | Estado local (toast, búsqueda, formularios) |
+| `useEffect`       | Countdown en useCountdown                   |
+| `useNavigate`     | Navegación programática                     |
+| `useParams`       | Obtener `:id` de la URL                     |
+| `useSearchParams` | Leer query params (`?search=`)              |
+
+### Custom Hook
+
+| Hook           | Archivo                 | Uso                            |
+| -------------- | ----------------------- | ------------------------------ |
+| `useCountdown` | `hooks/useCountdown.js` | Countdown de 5s en LandingPage |
+
+### Store (Zustand)
+
+| Hook           | Archivo                 | Uso                                          |
+| -------------- | ----------------------- | -------------------------------------------- |
+| `useCartStore` | `store/useCartStore.js` | Manejo del carrito (añadir, eliminar, total) |
+
+---
+
+## 🛒 Estado del Carrito (Zustand)
 
 ```javascript
 // Estado
-cart: []; // Array de items { id, title, author, price, image, quantity, ... }
+cart: []; // Array de libros con quantity
 
 // Acciones
-addToCart(book); // Añade libro o incrementa cantidad
-decreaseQuantity(id); // Decrementa o elimina si quantity = 0
-removeFromCart(id); // Elimina item del carrito
-clearCart(); // Vacía el carrito
-getTotalItems(); // Retorna cantidad total de items
-getCartTotal(); // Retorna suma de precios
+addToCart(book); // Añade o incrementa cantidad
+decreaseQuantity(id); // Decrementa o elimina si llega a 0
+removeFromCart(id); // Elimina del carrito
+clearCart(); // Vacía todo el carrito
+getTotalItems(); // Cantidad total de items
+getCartTotal(); // Suma total de precios
 ```
 
-**Persistencia:** Usa `persist` middleware con localStorage.
+**Persistencia:** Usa `localStorage` (el carrito se mantiene al recargar)
 
 ---
 
-## 📊 Datos Mock
-
-### `books.mock.js`
-
-30 libros con los campos:
-
-- `id`, `title`, `author`, `isbn`, `price`, `image`, `stock`, `description`
-- `category` (Clásico, Ciencia Ficción, Fantasía, Romance, Terror, Misterio, etc.)
-- `isBestSeller` (true/false)
-
----
-
-## 🎨 Estilos
-
-### Tailwind CSS + Variables personalizadas
-
-Ver `DESIGN_SYSTEM.md` para colores y tipografía.
-
-| Variable     | Color   | Uso              |
-| ------------ | ------- | ---------------- |
-| `primary`    | #4F46E5 | Botones, enlaces |
-| `text-main`  | #0F172A | Títulos          |
-| `text-body`  | #475569 | Párrafos         |
-| `background` | #F8FAFC | Fondo página     |
-| `surface`    | #FFFFFF | Cards            |
-
----
-
-## 📏 Convenciones
-
-### Naming
-
-- Componentes: `PascalCase.jsx`
-- Hooks/Stores: `useCamelCase.js`
-- Funciones: `camelCase()`
-
-### Commits (inglés)
+## � Flujo de la Aplicación
 
 ```
-feat: add new feature
-fix: resolve bug
-docs: update documentation
-style: format code
-refactor: restructure code
-```
-
-### Orden de imports
-
-1. React / librerías
-2. Componentes
-3. Stores / Hooks
-4. Utils / Data
-
----
-
-## 🔗 Flujo de la Aplicación
-
-```
-┌─────────────┐
-│ LandingPage │ ─────5s────▶ ┌──────────┐
-└─────────────┘               │ HomePage │
-                              │ /home    │
-                              └────┬─────┘
-                                   │ clic libro
-                                   ▼
-                           ┌──────────────┐
-                           │BookDetailPage│
-                           │ /book/:id    │
-                           └──────┬───────┘
-                                  │ añadir al carrito
-                                  ▼
-                           ┌──────────┐
-                           │ CartPage │ ◀── clic 🛒 Header
-                           │ /cart    │
-                           └────┬─────┘
-                                │ Proceder al pago
-                                ▼
-                         ┌──────────────┐
-                         │ CheckoutPage │
-                         │ /checkout    │
-                         └──────┬───────┘
-                                │ Confirmar y pagar
-                                ▼
-                   ┌───────────────────────┐
-                   │OrderConfirmationPage  │
-                   │ /order-confirmation   │
-                   └───────────────────────┘
+Landing (5s) → Home → BookDetail → Cart → Checkout → Confirmación
+      ↓         ↓          ↓
+   Logo      Búsqueda   Añadir
+   Countdown  Libros    al carrito
 ```
 
 ---
 
-_Para colores y tipografía ver `DESIGN_SYSTEM.md`_
-_Para requisitos académicos ver `ACTIVIDAD_1_GUIA.md`_
+## ✅ Criterios de Evaluación Cumplidos
+
+| Criterio             | Peso | Estado            |
+| -------------------- | ---- | ----------------- |
+| 10+ Componentes      | 5%   | ✅ 16 componentes |
+| useState + useEffect | 5%   | ✅                |
+| Custom Hook          | 10%  | ✅ useCountdown   |
+| React Router         | 10%  | ✅ 7 rutas        |
+| CSS (Tailwind)       | 10%  | ✅                |
+| Vistas               | 45%  | ✅                |
+| Video                | 10%  | Pendiente         |
+| Vercel               | 5%   | Pendiente         |
+
+---
+
+## � Para el Video
+
+1. Abrir el proyecto y mostrar `npm run dev`
+2. Navegar por las rutas explicando cada página
+3. Mostrar código de `LandingPage` → explicar `useCountdown`
+4. Mostrar código de `CartPage` → explicar `useCartStore`
+5. Demostrar flujo completo: añadir libros → checkout → confirmación

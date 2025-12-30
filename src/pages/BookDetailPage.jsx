@@ -7,8 +7,8 @@ import { useCartStore } from "../store/useCartStore";
  * Muestra detalle del libro y permite añadir al carrito.
  */
 const BookDetailPage = () => {
-  const { id } = useParams();
-  const addToCart = useCartStore((state) => state.addToCart);
+  const { id } = useParams(); //obtiene el id del libro desde la URL
+  const addToCart = useCartStore((state) => state.addToCart); //funcion para añadir al carrito
   const [showToast, setShowToast] = useState(false); //estado para mostrar el toast
 
   // Buscar el libro por ID
