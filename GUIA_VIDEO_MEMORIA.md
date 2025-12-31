@@ -12,21 +12,33 @@
 
 - "Relatos de Papel" - Librería online con React + Vite
 
+**Archivos de entrada:**
+| Archivo | Función |
+|---------|--------|
+| `main.jsx` | Punto de entrada, monta React en el DOM |
+| `App.jsx` | Componente raíz, renderiza `AppRouter` |
+
 **Enrutador - `AppRouter.jsx` (1 min):**
 
 - Usa `BrowserRouter`, `Routes`, `Route` de React Router
 - Rutas anidadas con `MainLayout`
 - Tabla de rutas:
 
-| Ruta                  | Página                |
-| --------------------- | --------------------- |
-| `/`                   | LandingPage           |
-| `/home`               | HomePage              |
-| `/book/:id`           | BookDetailPage        |
-| `/cart`               | CartPage              |
-| `/checkout`           | CheckoutPage          |
-| `/order-confirmation` | OrderConfirmationPage |
-| `*`                   | NotFoundPage (404)    |
+| Ruta                  | Página                            |
+| --------------------- | --------------------------------- |
+| `/`                   | LandingPage                       |
+| `/home`               | HomePage                          |
+| `/book/:id`           | BookDetailPage                    |
+| `/cart`               | CartPage                          |
+| `/checkout`           | CheckoutPage (protegida)          |
+| `/order-confirmation` | OrderConfirmationPage (protegida) |
+| `*`                   | NotFoundPage (404)                |
+
+**Rutas Protegidas - `ProtectedRoutes.jsx` (20 seg):**
+| Componente | Protege | Condición |
+|------------|---------|------------|
+| `ProtectedCheckout` | `/checkout` | Solo si hay items en carrito |
+| `ProtectedOrderConfirmation` | `/order-confirmation` | Solo si `orderCompleted` está en state |
 
 **Componentes de Layout (40 seg):**
 | Componente | Función |
@@ -49,6 +61,7 @@
 | `OrderSummary`    | `features/cart/`     | Subtotal, envío, total            |
 | `PaymentMethod`   | `features/checkout/` | Formulario tarjeta/PayPal         |
 | `CheckoutSummary` | `features/checkout/` | Resumen y botón confirmar         |
+| `Button`          | `components/ui/`     | Botón reutilizable con onClick    |
 
 **7 Pages (1 min):**
 
@@ -60,7 +73,7 @@
 - `OrderConfirmationPage` - Confirmación
 - `NotFoundPage` - Error 404
 
-**Total: 17 componentes**
+**Total: 19 componentes** (incluye 2 rutas protegidas)
 
 ---
 
@@ -173,7 +186,7 @@ npm install && npm run dev
 - ✅ Proyecto funcional con **React + Vite**
 - ✅ Enrutamiento con **React Router** (7 rutas)
 - ✅ Estado global con **Zustand** y persistencia
-- ✅ **17 componentes** organizados por features
+- ✅ **21 componentes/archivos JSX** organizados por features
 - ✅ **2 hooks personalizados** (`useCountdown`, `useCartStore`)
 - ✅ Desplegado exitosamente en **Vercel**
 
