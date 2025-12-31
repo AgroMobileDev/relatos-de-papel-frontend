@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { books } from "../data/books.mock";
 import { useCartStore } from "../store/useCartStore";
+import Button from "../components/ui/Button";
 
 /**
  * Muestra detalle del libro y permite añadir al carrito.
@@ -93,12 +94,12 @@ const BookDetailPage = () => {
               </div>
 
               {/* Botón Añadir */}
-              <button
+              <Button
                 onClick={handleAddToCart}
                 className="w-full bg-primary text-white py-4 rounded-full font-bold text-lg hover:bg-primary-dark transition-all shadow-lg hover:shadow-primary/30 active:scale-95"
               >
                 Añadir al carrito
-              </button>
+              </Button>
 
               {/* Volver al catálogo */}
               <Link

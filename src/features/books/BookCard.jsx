@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useCartStore } from "../../store/useCartStore";
 import { useNavigate } from "react-router-dom";
+import Button from "../../components/ui/Button";
 
 /**
  * Tarjeta de libro con imagen, título, precio y botón de añadir.
@@ -44,12 +45,12 @@ const BookCard = ({ book }) => {
         <p className="text-text-body">{book.author}</p>
         <p className="text-primary font-bold">${book.price}</p>
         {/*boton agregar carrito*/}
-        <button
+        <Button
           onClick={handleAddToCart}
           className="w-full bg-primary text-white py-2 rounded hover:bg-primary-dark"
         >
           Añadir al carrito
-        </button>
+        </Button>
       </div>
     </>
   );
