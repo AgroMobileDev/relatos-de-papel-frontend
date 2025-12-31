@@ -7,8 +7,6 @@ import { useCartStore } from "../../store/useCartStore";
 const CheckoutSummary = () => {
   const navigate = useNavigate();
   const getCartTotal = useCartStore((state) => state.getCartTotal);
-  const clearCart = useCartStore((state) => state.clearCart);
-
   const total = getCartTotal();
 
   const handleConfirmOrder = () => {
